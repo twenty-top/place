@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ping Pong Arcade – Free Browser Games</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .home-anim{position:fixed;inset:0;z-index:-1;background:var(--bg)}
+    .home-anim canvas{width:100%;height:100%}
+  </style>
+</head><body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="Kids Puzzle home">
+      <img src="assets/logo.svg" alt="Kids Puzzle logo">
+    </a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="nav" aria-label="Primary" aria-expanded="false">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="games/index.html">Games</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <h1>Welcome to the Ping Pong Arcade!</h1>
+    <p class="sub">Test your reflexes with classic paddle and ball games, right in your browser.</p>
+    <a class="cta" href="games/index.html">Start Playing</a>
+  </div>
+</section>
+<div class="home-anim"><canvas id="homebg"></canvas></div>
+
+<main class="wrap">
+
+  <section class="section" id="popular">
+    <div class="panel">
+      <h2 class="h2">Top Tables</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://i.imgur.com/gB21I0d.gif" alt="Snake">
+          <div class="body">
+            <div class="row"><strong>Snake</strong><span class="badge">Popular</span></div>
+            <a class="cta" href="games/snake.html" style="margin-top:.5rem;display:inline-block;">Play Now</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://i.imgur.com/u1aY32s.gif" alt="Brick Breaker">
+          <div class="body">
+            <div class="row"><strong>Brick Breaker</strong><span class="badge">Popular</span></div>
+            <a class="cta" href="games/breakout.html" style="margin-top:.5rem;display:inline-block;">Play Now</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-project">
+    <div class="panel">
+      <h2 class="h2">Match of the Week</h2>
+      <div class="grid" style="align-items: center; margin-top: 1.5rem;">
+        <article>
+          <h3 class="h3" style="font-size: 1.4rem;">Brick Breaker</h3>
+          <p class="small">This week, we're featuring a timeless classic! Brick Breaker is a single-player paddle game that challenges your reflexes and precision. Clear all the bricks to win, but don't let the ball drop!</p>
+          <ul style="padding-left: 20px; color: var(--muted); font-size: .95rem; margin-bottom: 1.5rem;">
+            <li>Classic arcade action</li>
+            <li>Simple, addictive gameplay</li>
+            <li>Great for all ages</li>
+          </ul>
+          <a class="cta" href="games/breakout.html">Play Now</a>
+        </article>
+        <aside>
+          <img src="https://i.imgur.com/u1aY32s.gif" alt="Brick Breaker Gameplay" style="width: 100%; border-radius: 12px; border: 1px solid var(--border);">
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="regional-games">
+    <div class="panel">
+      <h2 class="h2">Top Games by Region & Age</h2>
+      <p>A selection of games popular with different age groups in regions around the world.</p>
+      <div class="grid" style="margin-top:1.5rem; gap: 2rem;">
+        <div>
+          <h4>Germany & Canada (Ages 5-8)</h4>
+          <p class="small">Focus on foundational skills like memory and pattern recognition.</p>
+          <ul>
+            <li><a href="games/memory.html">Memory Match</a></li>
+            <li><a href="games/snake.html">Snake</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Australia & New Zealand (Ages 9-12)</h4>
+          <p class="small">Challenges that involve strategy, logic, and quick thinking.</p>
+          <ul>
+            <li><a href="games/breakout.html">Brick Breaker</a></li>
+            <li><a href="games/2048.html">2048 Mini</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="grid">
+      <article class="panel">
+        <h2 class="h2">Why Ping Pong Arcade?</h2>
+        <p>Looking for a safe and fun space to play classic games? Ping Pong Arcade was built to challenge your reflexes with exciting paddle-based games and brain-teasers. We offer pure, classic fun that's always free and respects your privacy. Your <strong>best scores are saved locally</strong> on your device, meaning you—and only you—are in control of your data.</p>
+        <ul>
+          <li>🧠 Boosts reaction time & problem-solving</li>
+          <li>🎮 Instant play in your browser</li>
+          <li>💾 Private high scores saved on your device</li>
+          <li>🛡️ A privacy-first platform by design</li>
+        </ul>
+        <a class="cta" href="games/index.html">Browse All Games</a>
+      </article>
+      <aside class="panel">
+        <h3 class="h3">Leaderboard Preview (Local)</h3>
+        <div id="miniBoard" class="small"></div>
+        <button class="cta ghost" id="clearMini" style="margin-top:8px;">Clear Local Scores</button>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="panel">
+      <h2 class="h2">Features</h2>
+      <div class="cards">
+        <article class="card"><img src="https://i.imgur.com/Y5OT46H.png" alt="Performance"><div class="body"><strong>Test Your Reflexes</strong><p class="small">Our games are designed to be fun and challenging. They help develop reaction time, logic, and precision in an engaging way.</p></div></article>
+        <article class="card"><img src="https://i.imgur.com/n7a2p6D.png" alt="Privacy by Design"><div class="body"><strong>Safe & Private</strong><p class="small">We don't need your data. High scores are stored using your browser's LocalStorage, keeping them private to you. We use minimal, anonymous analytics to improve the site, never to track users.</p></div></article>
+        <article class="card"><img src="https://i.imgur.com/j6P6A5G.png" alt="Responsive"><div class="body"><strong>Play Anywhere</strong><p class="small">Whether on a tablet, laptop, or desktop computer, our responsive design ensures a great gaming experience on any screen size.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="grid">
+      <div class="panel">
+        <h2 class="h2">Parents & Kids Say</h2>
+        <blockquote>“My son loves the reaction games! It's great to see him trying to beat his high score.” — <em>Sarah P.</em></blockquote>
+        <blockquote>“Ping Pong Arcade is my go-to for a quick, fun break. The games are challenging and classic.” — <em>David L.</em></blockquote>
+        <blockquote>“I like trying to beat my own high score. Snake is my favorite!” — <em>Leo, Age 8</em></blockquote>
+      </div>
+      <div class="panel">
+        <h2 class="h2">FAQ</h2>
+        <p><strong>Do I need an account?</strong><br>No. Just open a game and start playing instantly.</p>
+        <p><strong>Where are my scores saved?</strong><br>Scores are stored locally in your browser's <code>LocalStorage</code>. This means your data stays on your device. You can clear your scores anytime from the "All Games" or "Stats" pages.</p>
+        <p><strong>Is it really free?</strong><br>Yes, 100% free. We are a passion project dedicated to providing quality educational entertainment without cost.</p>
+        <p><strong>Can you add [X] game?</strong><br>We're always open to suggestions! Use our contact form to recommend a classic arcade game you'd love to see here. We focus on games that are lightweight and work well on the web.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <div class="panel" style="text-align:center">
+      <h2 class="h2">Ready to Play?</h2>
+      <p class="small">Challenge your reflexes and set a new high score!</p>
+      <a class="cta" href="games/index.html">Play Free Games</a>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="wrap cols" style="align-items:flex-start">
+    <div style="min-width:220px">
+      <div class="small"><strong class="brand-name">Ping Pong Arcade</strong><br>Play free arcade games. Scores saved locally on your device.</div>
+      <div class="small" style="margin-top:6px;">© <span id="year">2025</span> <span class="brand-name">Ping Pong Arcade</span>. All rights reserved.</div>
+    </div>
+    <div>
+      <div class="small"><strong>Platform</strong></div>
+      <ul style="list-style:none;padding:0;margin:.4rem 0 0 0;display:grid;gap:6px">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="games/index.html">Games</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="small"><strong>Legal</strong></div>
+      <ul style="list-style:none;padding:0;margin:.4rem 0 0 0;display:grid;gap:6px">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="dmca.html">DMCA</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="script.js" type="module"></script>
+<script src="privacy-popup.js" defer></script>
+
+
+<script>
+// HOME creative: Bouncing Ball background
+const homeCanvas = document.getElementById('homebg');
+if (homeCanvas) {
+    const ctx = homeCanvas.getContext('2d');
+    let W, H;
+    const ball = { x: 100, y: 100, vx: 3, vy: 3, r: 12 };
+    const paddle1 = { x: 20, y: 100, w: 15, h: 80 };
+    const paddle2 = { x: 0, y: 100, w: 15, h: 80 };
+
+    function resize() {
+        homeCanvas.width = innerWidth;
+        homeCanvas.height = innerHeight;
+        W = homeCanvas.width;
+        H = homeCanvas.height;
+        paddle2.x = W - 35;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        // Add a background fill for the light theme
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, W, H);
+        
+        // Move ball
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+
+        // AI Paddles follow ball
+        paddle1.y += (ball.y - (paddle1.y + paddle1.h / 2)) * 0.1;
+        paddle2.y += (ball.y - (paddle2.y + paddle2.h / 2)) * 0.1;
+
+        // Collisions
+        if (ball.y < ball.r || ball.y > H - ball.r) ball.vy *= -1;
+        if ((ball.x < paddle1.x + paddle1.w && ball.y > paddle1.y && ball.y < paddle1.y + paddle1.h) ||
+            (ball.x > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddle2.h)) {
+            ball.vx *= -1.1; // Speed up
+            ball.vx = Math.min(ball.vx, 15);
+        }
+        if (ball.x < 0 || ball.x > W) { ball.x = W / 2; ball.vx = 3; }
+
+        // Draw
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = '#ff7b00'; // Orange
+        ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#ffffff'; // White
+        ctx.fillRect(paddle1.x, paddle1.y, paddle1.w, paddle1.h);
+        ctx.fillRect(paddle2.x, paddle2.y, paddle2.w, paddle2.h);
+        ctx.globalAlpha = 1;
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+
+// Animate GIFs on hover for cards and featured image
+document.querySelectorAll('.card, #featured-project aside').forEach(el => {
+  const img = el.querySelector('img');
+  if (!img) return;
+
+  const staticSrc = img.src;
+  const gifSrc = img.dataset.gif;
+
+  el.addEventListener('mouseenter', () => {
+    if (gifSrc) img.src = gifSrc;
+  });
+  el.addEventListener('mouseleave', () => {
+    img.src = staticSrc;
+  });
+});
+</script>
+</body></html>

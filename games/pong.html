@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ping Pong – Ping Pong Arcade</title>
+<link href="../styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+.game-wrap{max-width:900px;margin:20px auto;padding:12px}
+.canvas-wrap{display:grid;place-items:center;background:#f3f4f6;border:1px solid var(--border);border-radius:12px;min-height:360px}
+.controls{margin-top:10px;color:var(--muted)}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Ping Pong Arcade logo" style="height:36px"><strong class="brand-name">Ping Pong Arcade</strong></a>
+    <a class="cta" href="../games/index.html" style="text-decoration:none;">Back to Games</a>
+  </div>
+</header>
+<main class="wrap section">
+  <div class="panel">
+    <h1 class="h2">Ping Pong</h1>
+    <div class="game-wrap">
+      
+<div class="canvas-wrap">
+  <canvas id="pong" width="640" height="360"></canvas>
+</div>
+
+<div id="mode-select" class="controls" style="text-align:center;">
+  <h3 class="h3">Select Game Mode</h3>
+  <button class="cta" id="one-player">1 Player (vs AI)</button>
+  <button class="cta" id="two-player">2 Player</button>
+</div>
+
+<div id="game-controls" class="controls small" style="display:none;">
+  <div id="controls-1p"><strong>1P Controls:</strong> Use your mouse to move the left paddle.</div>
+  <div id="controls-2p"><strong>1P:</strong> W/S Keys | <strong>2P:</strong> ↑/↓ Keys. First to 5 points wins!</div>
+  <div style="margin-top:10px;"><a class="cta small" id="restartBtn" href="#">Restart</a></div>
+</div>
+ 
+<script type="module">
+import { saveHighScore } from './game-utils.js';
+const cv = document.getElementById('pong'), cx = cv.getContext('2d');
+const modeSelect = document.getElementById('mode-select');
+const gameControls = document.getElementById('game-controls');
+const controls1p = document.getElementById('controls-1p');
+const controls2p = document.getElementById('controls-2p');
+
+let p1 = { y: 140, score: 0 }, p2 = { y: 140, score: 0 };
+const paddle = { w: 12, h: 80 };
+let ball = { x: 320, y: 180, vx: 4, vy: 4, r: 8 };
+let gameOver = true; // Game is over until a mode is selected
+let gameMode = 0; // 1 for 1P, 2 for 2P
+const keys = {};
+
+document.addEventListener('keydown', e => keys[e.key] = true);
+document.addEventListener('keyup', e => keys[e.key] = false);
+
+function resetBall() {
+  ball = { x: cv.width / 2, y: cv.height / 2, vx: (Math.random() > 0.5 ? 1 : -1) * 4, vy: (Math.random() - 0.5) * 4, r: 8 };
+}
+
+function updatePaddles() {
+    // Player 1
+    if (gameMode === 1) { // Mouse control for 1P
+        // This logic is now inside the event listener
+    } else if (gameMode === 2) { // Keyboard for 2P
+        if (keys['w'] || keys['W']) p1.y -= paddle.speed;
+        if (keys['s'] || keys['S']) p1.y += paddle.speed;
+    }
+    p1.y = Math.max(0, Math.min(cv.height - paddle.h, p1.y));
+
+    // Player 2
+    if (gameMode === 1) { // AI
+        p2.y += (ball.y - (p2.y + paddle.h / 2)) * 0.12;
+    } else if (gameMode === 2) { // Keyboard
+        if (keys['ArrowUp']) p2.y -= paddle.speed;
+        if (keys['ArrowDown']) p2.y += paddle.speed;
+    }
+    p2.y = Math.max(0, Math.min(cv.height - paddle.h, p2.y));
+}
+
+function loop() {
+  cx.fillStyle = '#f3f4f6'; cx.fillRect(0, 0, cv.width, cv.height);
+  cx.strokeStyle = 'rgba(30, 41, 59, 0.15)'; cx.lineWidth = 4; cx.setLineDash([10, 10]);
+  cx.beginPath(); cx.moveTo(cv.width / 2, 0); cx.lineTo(cv.width / 2, cv.height); cx.stroke(); cx.setLineDash([]);
+
+  if (!gameOver) {
+    updatePaddles();
+    ball.x += ball.vx; ball.y += ball.vy;
+    if (ball.y < ball.r || ball.y > cv.height - ball.r) ball.vy *= -1;
+    if (ball.x < 0) { p2.score++; resetBall(); }
+    if (ball.x > cv.width) { p1.score++; resetBall(); }
+    if (ball.x - ball.r < paddle.w && ball.y > p1.y && ball.y < p1.y + paddle.h) { ball.vx *= -1.05; }
+    if (ball.x + ball.r > cv.width - paddle.w && ball.y > p2.y && ball.y < p2.y + paddle.h) { ball.vx *= -1.05; }
+  }
+  
+  cx.fillStyle = '#1e293b';
+  cx.fillRect(0, p1.y, paddle.w, paddle.h);
+  cx.fillRect(cv.width - paddle.w, p2.y, paddle.w, paddle.h);
+  cx.fillStyle = '#ff7b00'; cx.beginPath(); cx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2); cx.fill();
+  cx.font = '32px Nunito'; cx.fillStyle = '#1e293b'; cx.fillText(p1.score, cv.width / 2 - 60, 40); cx.fillText(p2.score, cv.width / 2 + 40, 40);
+
+  if (!gameOver && (p1.score >= 5 || p2.score >= 5)) {
+    gameOver = true;
+    cx.font = '40px Nunito'; cx.textAlign = 'center';
+    cx.fillText(p1.score >= 5 ? "You Win!" : "AI Wins!", cv.width / 2, cv.height / 2);
+    saveHighScore('Ping Pong', p1.score - p2.score);
+  }
+
+  requestAnimationFrame(loop);
+}
+
+const mouseMoveHandler = e => { if (gameMode === 1) { const rect = cv.getBoundingClientRect(); p1.y = e.clientY - rect.top - paddle.h / 2; }};
+
+function startGame(mode) {
+    gameMode = mode;
+    gameOver = false;
+    p1.score = 0; p2.score = 0;
+    resetBall();
+    modeSelect.style.display = 'none';
+    gameControls.style.display = 'block';
+    controls1p.style.display = mode === 1 ? 'block' : 'none';
+    controls2p.style.display = mode === 2 ? 'block' : 'none';
+    cv.addEventListener('mousemove', mouseMoveHandler);
+}
+
+document.getElementById('one-player').addEventListener('click', () => startGame(1));
+document.getElementById('two-player').addEventListener('click', () => startGame(2));
+
+loop();
+</script>
+
+    </div>
+  </div>
+</main>
+<footer class="footer"><div class="wrap cols"><div class="small">© <span id="year">2025</span> <span class="brand-name">Ping Pong Arcade</span></div></div></footer>
+<script src="../script.js" type="module"></script>
+<script src="../privacy-popup.js" defer></script>
+<script type="module" src="./game-utils.js"></script>
+</body>
+</html>

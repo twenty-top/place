@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Games – Ping Pong Arcade</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+  /* Animated background layer on Games hub */
+  .bg-anim{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,#fff,#fafafa)}
+  .bg-anim canvas{width:100%;height:100%}
+  .scoreboard{margin-top:10px}
+  .scoreboard table{width:100%;border-collapse:collapse}
+  .scoreboard th,.scoreboard td{border:1px solid #e5e7eb;padding:8px;text-align:left}
+  </style>
+</head><body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../index.html" aria-label="Ping Pong Arcade home">
+      <img src="../assets/logo.svg" alt="Ping Pong Arcade logo">
+    </a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <nav class="nav" aria-label="Primary" aria-expanded="false">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../games/index.html">Games</a></li>
+        <li><a href="../stats.html">Stats</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="bg-anim"><canvas id="bg"></canvas></div>
+<main class="wrap section">
+  <div class="panel">
+    <h1 class="h2">The Game Hall</h1>
+    <p class="small">Welcome to the heart of the arcade. Below you'll find our full collection of instant-play games. Each one is a challenge to test your skills. Your best scores are saved automatically to your local device using <code>localStorage</code>, so you can always come back and try to beat your personal best. Good luck, player!</p>
+  </div>
+
+  <section class="section">
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+        <h2 class="h2" style="margin:0;">All Games</h2>
+        <input type="search" id="gameSearch" placeholder="Search games..." style="padding: .5rem .8rem; border-radius: 10px; border: 1px solid var(--border); background: #fff;">
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="https://i.imgur.com/v1h2E9B.png" data-gif="https://i.imgur.com/v1h2E9B.gif" alt="Ping Pong">
+          <div class="body">
+            <div class="row"><strong>Ping Pong</strong><span class="badge">New!</span></div>
+            <a class="cta" href="pong.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+          </div>
+        </article>
+
+        <article class="card">
+      <img src="https://i.imgur.com/A21K2tF.gif" alt="2048 Mini">
+      <div class="body">
+        <div class="row"><strong>2048 Mini</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="2048.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+
+<article class="card">
+      <img src="https://i.imgur.com/O1041i1.gif" alt="Avoider">
+      <div class="body">
+        <div class="row"><strong>Avoider</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="avoider.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+
+<article class="card">
+      <img src="https://i.imgur.com/n7a2p6D.gif" alt="Memory Match">
+      <div class="body">
+        <div class="row"><strong>Memory Match</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="memory.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+
+<article class="card">
+      <img src="https://i.imgur.com/u1aY32s.gif" alt="Breakout">
+      <div class="body">
+        <div class="row"><strong>Breakout</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="breakout.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+<article class="card">
+      <img src="https://i.imgur.com/t2a4jGz.gif" alt="Flappy">
+      <div class="body">
+        <div class="row"><strong>Flappy</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="flappy.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+
+<article class="card">
+      <img src="https://i.imgur.com/Y5OT46H.gif" alt="Reaction">
+      <div class="body">
+        <div class="row"><strong>Reaction</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="reaction.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+<article class="card">
+      <img src="https://i.imgur.com/j6P6A5G.gif" alt="Runner">
+      <div class="body">
+        <div class="row"><strong>Runner</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="runner.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+<article class="card">
+      <img src="https://i.imgur.com/gB21I0d.gif" alt="Snake">
+      <div class="body">
+        <div class="row"><strong>Snake</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="snake.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+<article class="card">
+      <img src="https://i.imgur.com/f5O5gSb.gif" alt="Tic Tac Toe">
+      <div class="body">
+        <div class="row"><strong>Tic Tac Toe</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="tictactoe.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+<article class="card">
+      <img src="https://i.imgur.com/zB1Jd2b.gif" alt="Whack">
+      <div class="body">
+        <div class="row"><strong>Whack</strong><span class="badge">HTML5</span></div>
+        <a class="cta" href="whack.html" style="margin-top:.5rem;display:inline-block;">Play</a>
+      </div>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel scoreboard">
+      <h2 class="h2">Your Local High Scores</h2>
+      <p class="small" style="margin-top:-.5rem;margin-bottom:1rem;">This data is read directly from your browser's <code>localStorage</code> and is never sent to our servers. You are in full control.</p>
+      <table id="scores"><thead><tr><th>Game</th><th>Best Score</th><th>Date Set</th></tr></thead><tbody></tbody></table>
+      <button class="cta ghost" id="clearScores" style="margin-top:8px;">Clear Local Scores</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap cols" style="align-items:flex-start">
+    <div style="min-width:220px">
+      <div class="small"><strong class="brand-name">Ping Pong Arcade</strong><br>Play free arcade games. Scores saved locally on your device.</div>
+      <div class="small" style="margin-top:6px;">© <span id="year">2025</span> <span class="brand-name">Ping Pong Arcade</span>. All rights reserved.</div>
+    </div>
+    <div>
+      <div class="small"><strong>Platform</strong></div>
+      <ul style="list-style:none;padding:0;margin:.4rem 0 0 0;display:grid;gap:6px">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../games/index.html">Games</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="small"><strong>Legal</strong></div>
+      <ul style="list-style:none;padding:0;margin:.4rem 0 0 0;display:grid;gap:6px">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms & Conditions</a></li>
+        <li><a href="../dmca.html">DMCA</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="../script.js" type="module"></script>
+<script src="../privacy-popup.js" defer></script>
+
+<script>
+// Background animation: Simple bouncing balls
+const bgCanvas = document.getElementById('bg');
+if (bgCanvas) {
+    const ctx = bgCanvas.getContext('2d');
+    let W, H;
+    const balls = Array.from({length: 15}, () => ({
+        x: Math.random() * (innerWidth),
+        y: Math.random() * (innerHeight),
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
+        r: 4 + Math.random() * 4,
+        color: Math.random() > 0.5 ? '#ff7b00' : '#ffffff'
+    }));
+
+    function resize() {
+        bgCanvas.width = innerWidth;
+        bgCanvas.height = innerHeight;
+        W = bgCanvas.width;
+        H = bgCanvas.height;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        // Add a background fill for the light theme
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, W, H);
+
+        balls.forEach(b => {
+            b.x += b.vx; b.y += b.vy;
+            if (b.x < b.r || b.x > W - b.r) b.vx *= -1;
+            if (b.y < b.r || b.y > H - b.r) b.vy *= -1;
+            ctx.fillStyle = b.color;
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
+        });
+        ctx.globalAlpha = 1.0;
+        requestAnimationFrame(draw);
+    }
+    draw();
+}
+
+// High scores table
+function loadScores(){
+  const tb=document.querySelector('#scores tbody'); tb.innerHTML='';
+  const data = JSON.parse(localStorage.getItem('pingpongarcade_scores')||'{}');
+  Object.keys(data).sort().forEach(k=>{
+    const tr=document.createElement('tr'); 
+    const v=data[k];
+    tr.innerHTML = `<td>${k}</td><td>${v.best.toLocaleString()}</td><td>${new Date(v.updated).toLocaleString()}</td>`;
+    tb.appendChild(tr);
+  });
+  if (tb.children.length === 0) {
+    tb.innerHTML = `<tr><td colspan="3" style="text-align:center;padding:20px;">No scores recorded yet. Go play some games!</td></tr>`;
+  }
+}
+loadScores(); document.getElementById('clearScores').onclick=()=>{ localStorage.removeItem('pingpongarcade_scores'); loadScores(); alert('Local scores cleared.'); };
+
+// Game search filter
+document.getElementById('gameSearch').addEventListener('input', e => {
+  const query = e.target.value.toLowerCase();
+  document.querySelectorAll('.cards .card').forEach(card => {
+    const title = card.querySelector('strong').textContent.toLowerCase();
+    card.style.display = title.includes(query) ? '' : 'none';
+  });
+});
+
+// Animate GIFs on hover
+document.querySelectorAll('.cards .card').forEach(card => {
+  const img = card.querySelector('img');
+  const staticSrc = img.src;
+  const gifSrc = img.dataset.gif;
+  card.addEventListener('mouseenter', () => {
+    if (gifSrc) img.src = gifSrc;
+  });
+  card.addEventListener('mouseleave', () => {
+    img.src = staticSrc;
+  });
+});
+</script>
+</body></html>
